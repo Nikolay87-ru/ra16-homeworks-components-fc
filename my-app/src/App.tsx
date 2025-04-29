@@ -1,33 +1,29 @@
-import { ShopItem } from './types';
-import './App.css'
+import ShopItemFunc from "./components/ShopItemFunc";
+import { ShopItem } from "./components/types";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const item: ShopItem = {
+    brand: "Tiger of Sweden",
+    title: "Leonard coat",
+    description: "Minimalistic coat in cotton-blend",
+    descriptionFull:
+      "Men's minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.",
+    price: 399,
+    currency: "£",
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <div className="background-element"></div>
+      <div className="highlight-window">
+        <div className="highlight-overlay"></div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="window">
+        <ShopItemFunc item={item} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
